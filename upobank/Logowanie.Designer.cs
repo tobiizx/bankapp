@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
-            button1 = new Button();
+            LoginButton = new Button();
             ExitButton = new Button();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            loginTextBox = new TextBox();
+            passwordTextBox = new TextBox();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -44,10 +44,10 @@
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Controls.Add(button1, 0, 3);
+            tableLayoutPanel1.Controls.Add(LoginButton, 0, 3);
             tableLayoutPanel1.Controls.Add(ExitButton, 1, 3);
-            tableLayoutPanel1.Controls.Add(textBox1, 1, 1);
-            tableLayoutPanel1.Controls.Add(textBox2, 1, 2);
+            tableLayoutPanel1.Controls.Add(loginTextBox, 1, 1);
+            tableLayoutPanel1.Controls.Add(passwordTextBox, 1, 2);
             tableLayoutPanel1.Controls.Add(label1, 0, 1);
             tableLayoutPanel1.Controls.Add(label2, 0, 2);
             tableLayoutPanel1.Controls.Add(label3, 0, 0);
@@ -62,17 +62,17 @@
             tableLayoutPanel1.Size = new Size(776, 426);
             tableLayoutPanel1.TabIndex = 0;
             // 
-            // button1
+            // LoginButton
             // 
-            button1.Dock = DockStyle.Fill;
-            button1.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            button1.Location = new Point(3, 321);
-            button1.Name = "button1";
-            button1.Size = new Size(382, 102);
-            button1.TabIndex = 0;
-            button1.Text = "Zaloguj";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            LoginButton.Dock = DockStyle.Fill;
+            LoginButton.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            LoginButton.Location = new Point(3, 321);
+            LoginButton.Name = "LoginButton";
+            LoginButton.Size = new Size(382, 102);
+            LoginButton.TabIndex = 0;
+            LoginButton.Text = "Zaloguj";
+            LoginButton.UseVisualStyleBackColor = true;
+            LoginButton.Click += LoginButtonPressed;
             // 
             // ExitButton
             // 
@@ -84,23 +84,23 @@
             ExitButton.TabIndex = 1;
             ExitButton.Text = "Wyjdź";
             ExitButton.UseVisualStyleBackColor = true;
-            ExitButton.Click += ExitButton_Click;
+            ExitButton.Click += ExitButtonPressed;
             // 
-            // textBox1
+            // loginTextBox
             // 
-            textBox1.Dock = DockStyle.Bottom;
-            textBox1.Location = new Point(391, 186);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(382, 23);
-            textBox1.TabIndex = 2;
+            loginTextBox.Dock = DockStyle.Bottom;
+            loginTextBox.Location = new Point(391, 186);
+            loginTextBox.Name = "loginTextBox";
+            loginTextBox.Size = new Size(382, 23);
+            loginTextBox.TabIndex = 2;
             // 
-            // textBox2
+            // passwordTextBox
             // 
-            textBox2.Dock = DockStyle.Fill;
-            textBox2.Location = new Point(391, 215);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(382, 23);
-            textBox2.TabIndex = 3;
+            passwordTextBox.Dock = DockStyle.Fill;
+            passwordTextBox.Location = new Point(391, 215);
+            passwordTextBox.Name = "passwordTextBox";
+            passwordTextBox.Size = new Size(382, 23);
+            passwordTextBox.TabIndex = 3;
             // 
             // label1
             // 
@@ -156,10 +156,10 @@
         #endregion
 
         private TableLayoutPanel tableLayoutPanel1;
-        private Button button1;
+        private Button LoginButton;
         private Button ExitButton;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox loginTextBox;
+        private TextBox passwordTextBox;
         private Label label1;
         private Label label2;
         private Label label3;
