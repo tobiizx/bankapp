@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace upobank
+namespace BankApp
 {
     public partial class NewTransfer : Form
     {
@@ -34,12 +34,9 @@ namespace upobank
             //konwertujemy kwotę w złotówkach na grosze
             int amount = (int)Math.Round(userAmount * 100);
             //tworzymy obiekt zawierający dane przelewu
-            var data = new
-            {
-                token = token,
-                target = target,
-                amount = amount
-            };
+            var data = new { token = token, 
+                            target = target, 
+                            amount = amount };
             //wysyłamy do API zapytanie POST z danymi przelewu
             string url = "http://localhost/bankAPI/transfer/new/";
             HttpClient client = new HttpClient();

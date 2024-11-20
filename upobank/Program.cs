@@ -1,4 +1,4 @@
-namespace upobank
+namespace BankApp
 {
     internal static class Program
     {
