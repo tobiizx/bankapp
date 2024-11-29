@@ -1,5 +1,6 @@
-using Newtonsoft.Json;
+ï»¿using Newtonsoft.Json;
 using System.Net.Http.Json;
+using upobank;
 
 namespace BankApp
 {
@@ -14,23 +15,24 @@ namespace BankApp
 
         private void GetAccountData(object sender, EventArgs e)
         {
-            //to jest blibioteka do wysy³ania zapytañ http
+            //to jest blibioteka do wysyÂ³ania zapytaÃ± http
             //i przetwarzania odpowiedzi otrzymanych z API
             HttpClient client = new HttpClient();
-            //adres API - endpoint zwraca szczegó³y rachunku na podstawie tokenu
+            //adres API - endpoint zwraca szczegÃ³Â³y rachunku na podstawie tokenu
             string url = "http://localhost/bankAPI/account/details/";
-            //tworzymy obiekt zawieraj¹cy token
+            //tworzymy obiekt zawierajÂ¹cy token
             var data = new { token = token };
-            //wysy³amy zapytanie POST do API zawieraj¹ce token
+            //wysyÂ³amy zapytanie POST do API zawierajÂ¹ce token
             HttpResponseMessage response = client.PostAsJsonAsync(url, data).Result;
-            //wyci¹gnij z odpowiedzi dane w formacie JSON
+            //wyciÂ¹gnij z odpowiedzi dane w formacie JSON
             string json = response.Content.ReadAsStringAsync().Result;
-            Account account = JsonConvert.DeserializeObject<Account>(json);
+            AccountDetailsResponse accountDetailsResponse =
+                JsonConvert.DeserializeObject<AccountDetailsResponse>(json);
+            Account account = accountDetailsResponse.account;
             //wypisz dane na formularzu
             AccountNameTextBox.Text = account.name;
             AccountNumberTextBox.Text = account.accountNo.ToString();
             AccountAmountTextBox.Text = account.amount.ToString();
-
         }
 
         private void OnAppLoad(object sender, EventArgs e)
@@ -38,27 +40,27 @@ namespace BankApp
             Login loginForm = new Login(this);
             if (loginForm.ShowDialog(this) == DialogResult.OK)
             {
-                //jeœli zalogowano poprawnie to poka¿ formularz
+                //jeÅ›li zalogowano poprawnie to pokaÅ¼ formularz
                 this.Show();
                 tokenTextBox.Text = token;
             }
             else
             {
-                //jeœli nie to zamknij aplikacjê
+                //jeÅ›li nie to zamknij aplikacjÄ™
                 Application.Exit();
             }
         }
 
         private void newTransferButton_Click(object sender, EventArgs e)
         {
-            //otwórz formularz nowego przelewu
+            //otwÃ³rz formularz nowego przelewu
             NewTransfer newTransfer = new NewTransfer();
             
             newTransfer.token = token;
             newTransfer.source = AccountNumberTextBox.Text;
 
             newTransfer.ShowDialog();
-            //TODO: poka¿ zaktualizowany stan konta po wykonaniu przelewu
+            //TODO: pokaÅ¼ zaktualizowany stan konta po wykonaniu przelewu
         }
     }
 }
