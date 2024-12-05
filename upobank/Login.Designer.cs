@@ -132,7 +132,7 @@
             passwordTextBox.Name = "passwordTextBox";
             passwordTextBox.Size = new Size(394, 33);
             passwordTextBox.TabIndex = 2;
-            passwordTextBox.Text = "321";
+            passwordTextBox.Text = "123";
             // 
             // loginTextBox
             // 
@@ -142,7 +142,7 @@
             loginTextBox.Name = "loginTextBox";
             loginTextBox.Size = new Size(394, 33);
             loginTextBox.TabIndex = 1;
-            loginTextBox.Text = "jkowalski@teb.pl";
+            loginTextBox.Text = "user1@teb.pl";
             // 
             // Login
             // 

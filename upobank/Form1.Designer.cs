@@ -37,6 +37,7 @@
             label2 = new Label();
             tokenTextBox = new TextBox();
             newTransferButton = new Button();
+            TransfersListBox = new ListBox();
             AccountDetailsGroupBox.SuspendLayout();
             SuspendLayout();
             // 
@@ -109,7 +110,7 @@
             // tokenTextBox
             // 
             tokenTextBox.Dock = DockStyle.Bottom;
-            tokenTextBox.Location = new Point(0, 226);
+            tokenTextBox.Location = new Point(0, 299);
             tokenTextBox.Name = "tokenTextBox";
             tokenTextBox.ReadOnly = true;
             tokenTextBox.Size = new Size(463, 23);
@@ -117,7 +118,7 @@
             // 
             // newTransferButton
             // 
-            newTransferButton.Location = new Point(222, 182);
+            newTransferButton.Location = new Point(242, 270);
             newTransferButton.Name = "newTransferButton";
             newTransferButton.Size = new Size(203, 23);
             newTransferButton.TabIndex = 5;
@@ -125,11 +126,21 @@
             newTransferButton.UseVisualStyleBackColor = true;
             newTransferButton.Click += newTransferButton_Click;
             // 
+            // TransfersListBox
+            // 
+            TransfersListBox.FormattingEnabled = true;
+            TransfersListBox.ItemHeight = 15;
+            TransfersListBox.Location = new Point(12, 166);
+            TransfersListBox.Name = "TransfersListBox";
+            TransfersListBox.Size = new Size(433, 94);
+            TransfersListBox.TabIndex = 6;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(463, 249);
+            ClientSize = new Size(463, 322);
+            Controls.Add(TransfersListBox);
             Controls.Add(newTransferButton);
             Controls.Add(tokenTextBox);
             Controls.Add(AccountDetailsGroupBox);
@@ -153,5 +164,6 @@
         private Label label2;
         private TextBox tokenTextBox;
         private Button newTransferButton;
+        private ListBox TransfersListBox;
     }
 }
